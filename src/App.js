@@ -1,6 +1,6 @@
-//09 урок
 import React from "react";
 import "./App.css";
+import Dialogs from "./components/Dialogs/Dialogs";
 import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
@@ -10,7 +10,11 @@ const App = () => {
     <div className="app-wrapper">
       <Header />
       <Navbar />
-      <Profile />
+      <div class="app-wrapper-content">
+      <Dialogs />
+      </div>
+      
+      {/* <Profile /> */}
     </div>
   );
 };
@@ -82,3 +86,44 @@ export default App;
 //компонеты <Header />, <Technologies />, <Footer /> удаляем
 //файлы .js и тэги
 //удаляем в App импорты к ним.
+
+//16
+//const Header = (props) => {
+//   return (<div>
+//     <a>it-incubator.by</a>
+//     <a>repetitora.net</a>
+//     <a>it-kamasutra.com</a>
+//   </div>);
+// }
+//каждая компонента вызывается всегда с параметрами props-ами,
+//это имя параметра, его можно было назвать как угодно
+//мы, находясь внутри функции можем манипулировать пришедшими к нам пропсами
+//let obh = {
+//name: 'Dima'
+//}
+//Header(obj);
+//этот объект вложили внутрь, объект превратился в пропсы
+//функцию мы не вызывает, вызывает реакт.
+//как нам вложить нужные пропсы?
+//мы рисуем тэг <Header />, в него по умолчанию приходит пустой объект
+//{
+//  //empty object
+//}
+//мы можем настраивать наш тэг с помощью атрибута
+//<Header name='Dima K' /> react автоматически создаст объект, этот объект придет
+//к нам в пропсах. Таким образом мы можем отрисовать два тэга с разными атрибутами.
+//добавляем тэг - передаем в пропсах нужный объект - отрисовывается то, что нам надо
+//const Header = (props) => {
+//   return (<div>
+//<span> {props.name}, {props.age} </span> - внутри jsx-а джаваскриптовая логика пишется в фигурных скобках
+//     <a>it-incubator.by</a>
+//     <a>repetitora.net</a>
+//     <a>it-kamasutra.com</a>
+//   </div>);
+// }
+//здесь cвойства объекта переданы в пропсах и jsx отрисует эти свойства
+//
+//
+//
+//
+//
