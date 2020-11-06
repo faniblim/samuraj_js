@@ -22,9 +22,7 @@ const App = (props) => {
             render={() => (
               <Dialogs
               dialogsPage ={props.state.dialogsPage}
-               addMessage={props.addMessage}
-               newMessageText={props.state.dialogsPage.newMessageText}
-               updateNewMessageText={props.updateNewMessageText}
+              dispatch={props.dispatch}
               />
             )}
           />
@@ -32,8 +30,7 @@ const App = (props) => {
             path="/profile"
             render={() => <Profile 
               profilePage={props.state.profilePage} 
-              addPost={props.addPost}
-              updateNewPostText={props.updateNewPostText}
+              dispatch={props.dispatch}
               />}
           />
           <Route path="/news" render={() => <News />} />
