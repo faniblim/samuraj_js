@@ -10,11 +10,10 @@ let rerenderEntiereTree = (state) => {
   ReactDOM.render(
     // <React.StrictMode>
     <BrowserRouter>
-      <App
-        state={state}
-        dispatch={store.dispatch.bind(store)} />
+      <App state={state} dispatch={store.dispatch.bind(store)} store={store} />
       {/* // </React.StrictMode>, */}
-    </BrowserRouter>, document.getElementById("root")
+    </BrowserRouter>,
+    document.getElementById("root")
   );
 };
 

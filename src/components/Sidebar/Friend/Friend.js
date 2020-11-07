@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import s from "./../Friends.module.css";
+import s from "./../Sidebar.module.css";
 
 
 const Friend = (props) => {

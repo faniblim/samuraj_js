@@ -8,7 +8,7 @@ import Navbar from "./components/Navbar/Navbar";
 import News from "./components/News/News";
 import Profile from "./components/Profile/Profile";
 import Settings from "./components/Settings/Settings";
-import Friends from "./components/Sidebar/Friends";
+import Friends from "./components/Sidebar/Sidebar";
 
 const App = (props) => {
   return (
@@ -19,25 +19,34 @@ const App = (props) => {
         <div className="app-wrapper-content">
           <Route
             path="/dialogs"
-            render={() => (
+            render={ () => (
               <Dialogs
-              dialogsPage ={props.state.dialogsPage}
-              dispatch={props.dispatch}
+              store={props.store}              
+                // dialogsPage={props.state.dialogsPage}
+                // dispatch={props.dispatch}
               />
             )}
           />
           <Route
             path="/profile"
-            render={() => <Profile 
-              profilePage={props.state.profilePage} 
-              dispatch={props.dispatch}
-              />}
+            render={() => (
+              <Profile
+                profilePage={props.state.profilePage}
+                dispatch={props.dispatch}
+              />
+            )}
           />
           <Route path="/news" render={() => <News />} />
           <Route path="/music" render={() => <Music />} />
           <Route path="/settings" render={() => <Settings />} />
           {/* <Route path="/sidebar" render={() =>  <Friends />} /> */}
-          <Route path="/sidebar" render={() =>  <Friends state ={props.state.sidebar}/>} />
+          <Route
+            path="/sidebar"
+            render={() => <Friends 
+              store={props.store}
+              // state={props.state.sidebar}
+               />}
+          />
         </div>
       </div>
     </BrowserRouter>
