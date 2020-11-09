@@ -8,7 +8,7 @@ import Navbar from "./components/Navbar/Navbar";
 import News from "./components/News/News";
 import Profile from "./components/Profile/Profile";
 import Settings from "./components/Settings/Settings";
-import Friends from "./components/Sidebar/Sidebar";
+import Sidebar from "./components/Sidebar/Sidebar";
 
 const App = (props) => {
   return (
@@ -22,8 +22,6 @@ const App = (props) => {
             render={ () => (
               <Dialogs
               store={props.store}              
-                // dialogsPage={props.state.dialogsPage}
-                // dispatch={props.dispatch}
               />
             )}
           />
@@ -32,19 +30,17 @@ const App = (props) => {
             render={() => (
               <Profile
                 profilePage={props.state.profilePage}
-                dispatch={props.dispatch}
+               dispatch={props.dispatch}
               />
             )}
           />
           <Route path="/news" render={() => <News />} />
           <Route path="/music" render={() => <Music />} />
           <Route path="/settings" render={() => <Settings />} />
-          {/* <Route path="/sidebar" render={() =>  <Friends />} /> */}
           <Route
             path="/sidebar"
-            render={() => <Friends 
+            render={() => <Sidebar 
               store={props.store}
-              // state={props.state.sidebar}
                />}
           />
         </div>

@@ -2,7 +2,7 @@ import React from "react";
 import {
   sendMessageCreator,
   updateNewMessageBodyCreator,
-} from "../../redux/state";
+} from "../../redux/dialogs-reducer";
 import s from "./Dialogs.module.css";
 import DialogItem from "./DialogsItem/DialogsItem";
 import Message from "./Message/Message";
@@ -41,11 +41,7 @@ const Dialogs = (props) => {
         </div>
         <div>
           <button onClick={onSendMessageClick}>Send</button>
-          {/* {" "} */}
         </div>
-        {/* <div>
-          <button onClick={addMessage}>Add message</button>
-        </div> */}
       </div>
     </div>
   );

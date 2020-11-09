@@ -4,9 +4,9 @@ import s from "./Sidebar.module.css";
 import {
   addFriendCreator,
   updateNewFriendCreator,
-} from "../../redux/state";
+} from "../../redux/sidebar-reducer";
 
-const Friends = (props) => {
+const Sidebar = (props) => {
   let state = props.store.getState().sidebar;
 
   let friendsElements = state.friends.map((f) => (
@@ -40,4 +40,4 @@ const Friends = (props) => {
   );
 };
 
-export default Friends;
+export default Sidebar;
