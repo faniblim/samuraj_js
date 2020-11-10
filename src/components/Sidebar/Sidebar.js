@@ -1,13 +1,9 @@
 import React from "react";
 import Friend from "./Friend/Friend";
 import s from "./Sidebar.module.css";
-import {
-  addFriendCreator,
-  updateNewFriendCreator,
-} from "../../redux/sidebar-reducer";
 
 const Sidebar = (props) => {
-  let state = props.store.getState().sidebar;
+  let state = props.sidebar;
 
   let friendsElements = state.friends.map((f) => (
     <Friend id={f.id} name={f.name} friendCount={f.friendCount} />
@@ -15,12 +11,12 @@ const Sidebar = (props) => {
   let newFriend = state.newFriend;
 
   let onSendFriendClick = () => {
-    props.store.dispatch(addFriendCreator());
+    props.sendFriend();
   };
 
   let onNewFriendChange = (e) => {
     let friend = e.target.value;
-    props.store.dispatch(updateNewFriendCreator(friend));
+    props.updateNewFriend(friend);
   };
 
   return (
