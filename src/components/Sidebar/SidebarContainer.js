@@ -6,37 +6,11 @@ import {
 import Sidebar from "./Sidebar";
 import {connect} from "react-redux";
 
-
-// const SidebarContainer = (props) => {
-//   return (
-//     <StoreContext.Consumer>
-//       {
-//       (store) => {
-//         let state = store.getState().sidebar;
-
-//         let onSendFriendClick = () => {
-//           store.dispatch(addFriendCreator());
-//         };
-
-//         let onNewFriendChange = (friend) => {
-//           store.dispatch(updateNewFriendCreator(friend));
-//         };
-//         return (
-//           <Sidebar
-//             updateNewFriend={onNewFriendChange}
-//             sendFriend={onSendFriendClick}
-//             sidebar={state}
-//           />
-//         );
-//       }}
-//     </StoreContext.Consumer>
-//   );
-// };
-
 let mapStateToProps = (state) => {
   return {
     sidebar: state.sidebar,
     newPostText: state.sidebar.newFriend
+    // newFriend: state.sidebar.newFriend
   }
 }
 

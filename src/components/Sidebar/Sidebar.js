@@ -22,7 +22,6 @@ const Sidebar = (props) => {
   return (
     <div className={s.friends}>
       <h3>Friends</h3>
-      <div className={s.friend}>{friendsElements}</div>
       <div className={s.namefriend}>
         <div>
           <textarea 
@@ -32,6 +31,7 @@ const Sidebar = (props) => {
         </div>
         <div><button onClick={onSendFriendClick}>Send</button></div>
       </div>
+      <div className={s.friend}>{friendsElements}</div>
     </div>
   );
 };

@@ -12,14 +12,18 @@ let initialState = {
 
 const sidebarReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ADD_FRIEND:
-      let friend = state.newFriend;
-      state.newFriend = "";
-      state.friends.push({ id: 4, name: friend, friendCount: "89" });
-      return state;
-    case UPDATE_NEW_FRIEND_NAME:
-      state.newFriend = action.friend;
-      return state;
+    case ADD_FRIEND: {
+      let stateCopy = {...state};
+      let friend = stateCopy.newFriend;
+      stateCopy.newFriend = "";
+      stateCopy.friends.push({ id: 4, name: friend, friendCount: "89" });
+      return stateCopy;
+    }
+    case UPDATE_NEW_FRIEND_NAME: {
+      let stateCopy = {...state};
+      stateCopy.newFriend = action.friend;
+      return stateCopy;
+    }
     default:
       return state;
   }
