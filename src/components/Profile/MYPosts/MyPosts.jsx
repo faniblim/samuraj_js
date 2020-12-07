@@ -4,9 +4,9 @@ import Post from "./Post/Post";
 
 const MyPosts = (props) => {
 
-  let postsElements = props.posts.map((p) => (
-    <Post id={p.id} message={p.message} likesCount={p.likesCount} />
-  ));
+  let postsElements = 
+    props.posts.map( p => <Post message={p.message} likesCount={p.likesCount} />
+  );
 
   let newPostElement = React.createRef();
 
@@ -16,7 +16,7 @@ const MyPosts = (props) => {
 
   let onPostChange = () => {
     let text = newPostElement.current.value;
-    props.updateNewPostTextActionCreator(text);
+    props.updateNewPostText(text);
   };
 
   return (

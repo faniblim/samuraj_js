@@ -7,7 +7,6 @@ const Navbar = () => {
   return (
     <nav className={s.nav}>
       <div className={s.item}>
-        {/* <a href="/profile">Profile</a> */}
         <NavLink to="/profile" activeClassName={s.activeLink}>Profile</NavLink>
       </div>
       <div className={`${s.item} ${s.active}`}>
