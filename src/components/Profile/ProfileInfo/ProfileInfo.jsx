@@ -14,8 +14,8 @@ const ProfileInfo = (props) => {
         <img src="https://sun9-49.userapi.com/AfX6GrEzWjvLGKhcksDq9ktmbQ6L2Z2JGiEOZw/tTy-mw5GOYs.jpg" />
         </div>
         <div className={s.descriptionblock}>
-        {/* <img src={props.profile.photo.large} /> */}
-        <ProfileStatus status={"Hello my friends"} />
+        {/* <img src={props.profile.photos.large} /> */}
+        <ProfileStatus status={props.status} updateStatus={props.updateStatus} />
       </div>
     </div>
   );
