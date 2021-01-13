@@ -1,5 +1,7 @@
 import React from "react";
-import { BrowserRouter, Route } from "react-router-dom";
+import { Component } from "react";
+import { connect } from "react-redux";
+import {Route} from "react-router-dom";
 import "./App.css";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
@@ -11,10 +13,19 @@ import ProfileContainer from "./components/Profile/ProfileContainer";
 import Settings from "./components/Settings/Settings";
 import SidebarContainer from "./components/Sidebar/SidebarContainer";
 import UsersContainer from "./components/Users/UsersContainer";
+import { withRouter } from "react-router-dom";
+import { compose } from "redux";
+import { initializeApp} from "./redux/app-reducer";
+import Preloader from "./components/common/Preloader/Preloader";
 
-const App = () => {
-  return (
-    <div className="app-wrapper">
+class App extends Component {
+  componentDidMount() {
+    if (!this.props.initialized){
+      return <Preloader />}
+  }
+  render() {
+    return (
+      <div className="app-wrapper">
       <HeaderContainer />
       <Navbar />
       <div className="app-wrapper-content">
@@ -28,7 +39,15 @@ const App = () => {
         <Route path="/sidebar" render={() => <SidebarContainer />} />
       </div>
     </div>
-  );
-};
+    )
+  }
+}
 
-export default App;
+const mapStateToProps = (state) => ({
+  initialized: state.app.initialized
+})
+
+export default compose(
+withRouter,
+connect(mapStateToProps, {initializeApp}))
+(App);
